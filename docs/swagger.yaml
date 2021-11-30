@@ -1,0 +1,14 @@
+basePath: /api
+host: localhost:8080
+info:
+  contact: {}
+  description: API Server for Games Library App
+  title: Games Library
+  version: "0.1"
+paths: {}
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

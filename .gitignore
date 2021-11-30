@@ -1,0 +1,4 @@
+/configs/prod.yml
+.env
+tmp
+.data

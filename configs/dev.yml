@@ -1,0 +1,25 @@
+http:
+    port: 8080
+    maxHeaderBytes: 1
+    readTimeout: 10s
+    writeTimeout: 10s
+
+cache:
+    ttl: 3600s
+
+auth:
+    accessTokenTTL: 1h
+    refreshTokenTTL: 720h #30 days
+
+mongo:
+    databaseName: atlas
+
+redis:
+    host: localhost
+    port: 6379
+    db: 0
+
+limiter:
+    rps: 10
+    burst: 20
+    ttl: 10m
