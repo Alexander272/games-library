@@ -14,7 +14,7 @@ type IUser interface {
 	GetAll(ctx context.Context) ([]models.User, error)
 	GetById(ctx context.Context, userId string) (models.User, error)
 	Update(ctx context.Context, dto models.UpdateUserDTO) error
-	Delete(ctx context.Context, userId string) error
+	Remove(ctx context.Context, userId string) error
 }
 
 type IAuth interface {

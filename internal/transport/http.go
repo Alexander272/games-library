@@ -12,6 +12,8 @@ import (
 	"github.com/gin-gonic/gin"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
+
+	userDelivery "github.com/Alexander272/games-library/internal/user/transport"
 )
 
 type Handler struct {
@@ -60,8 +62,9 @@ func (h *Handler) Init(conf *config.Config) *gin.Engine {
 }
 
 func (h *Handler) initAPI(router *gin.Engine) {
-	// api := router.Group("/api")
-	// {
-
-	// }
+	userHandler := userDelivery.NewHandler(h.services)
+	api := router.Group("/api")
+	{
+		userHandler.Init(api)
+	}
 }

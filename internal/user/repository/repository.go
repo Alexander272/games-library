@@ -4,7 +4,10 @@ import (
 	"context"
 
 	"github.com/Alexander272/games-library/internal/user/models"
-	"github.com/Alexander272/games-library/internal/user/repository/redis"
+	user "github.com/Alexander272/games-library/internal/user/repository/mongo"
+	ses "github.com/Alexander272/games-library/internal/user/repository/redis"
+	"github.com/go-redis/redis/v8"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type IUser interface {
@@ -17,7 +20,15 @@ type IUser interface {
 }
 
 type ISession interface {
-	Create(ctx context.Context, token string, data redis.SessionData) error
-	GetDel(ctx context.Context, key string) (data redis.SessionData, err error)
+	Create(ctx context.Context, token string, data ses.SessionData) error
+	GetDel(ctx context.Context, key string) (data ses.SessionData, err error)
 	Delete(ctx context.Context, key string) error
+}
+
+func NewUserRepo(db *mongo.Database, collection string) IUser {
+	return user.NewUserRepo(db, collection)
+}
+
+func NewSessionRepo(redis *redis.Client) ISession {
+	return ses.NewSessionRepo(redis)
 }
