@@ -5,11 +5,11 @@ type Token struct {
 }
 
 type User struct {
-	Id       string `json:"id" bson:"_id"`
-	Name     string `json:"name" bson:"name"`
-	Email    string `json:"email" bson:"email"`
-	Password string `json:"-" bson:"password"`
-	Role     string `json:"role" bson:"role"`
+	Id       string `json:"id" bson:"_id,omitempty"`
+	Name     string `json:"name" bson:"name,omitempty"`
+	Email    string `json:"email" bson:"email,omitempty"`
+	Password string `json:"-" bson:"password,omitempty"`
+	Role     string `json:"role" bson:"role,omitempty"`
 }
 
 type SignInUserDTO struct {
