@@ -1,0 +1,20 @@
+.admin {
+    height: 100%;
+    display: flex;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+}
+
+.container {
+    padding: 25px 35px;
+}
+
+.title {
+    font-size: 1.3rem;
+    color: rgb(23, 116, 255);
+}
